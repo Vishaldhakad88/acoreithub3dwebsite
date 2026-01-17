@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
+import { FaPhoneAlt, FaEnvelope, FaGlobe, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Contact() {
   return (
     <section className="relative bg-black text-white py-28 overflow-hidden">
 
-      {/* ===== SOFT BLUE ACCENT (SUBTLE) ===== */}
+      {/* ===== SUBTLE BACKGROUND ACCENT ===== */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(14,165,233,0.18),transparent_45%)]"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
 
-        {/* Heading */}
+        {/* ===== HEADING ===== */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +26,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* Content */}
+        {/* ===== CONTENT ===== */}
         <div className="grid md:grid-cols-2 gap-14 items-start">
 
           {/* LEFT – INFO */}
@@ -38,16 +39,83 @@ export default function Contact() {
               Why Contact Acore IT Hub?
             </h3>
 
-            <ul className="space-y-4 text-white/75">
-              <li>✔ Free project consultation</li>
-              <li>✔ Clear cost & timeline estimation</li>
-              <li>✔ Modern & scalable technology stack</li>
-              <li>✔ Dedicated technical support</li>
-            </ul>
 
-            <p className="mt-8 text-white/60">
-              We usually respond within <span className="text-cyan-400">24 hours</span>.
-            </p>
+            {/* ===== CONTACT DETAILS (3D CARDS) ===== */}
+            <div className="mt-10 grid gap-5">
+
+              {/* Phone */}
+              <motion.div
+                whileHover={{ rotateX: 6, rotateY: -6, y: -4 }}
+                style={{ transformStyle: "preserve-3d" }}
+                className="flex items-start gap-4 p-5 rounded-2xl
+                  bg-white/5 backdrop-blur-2xl
+                  border border-white/10
+                  shadow-[0_15px_40px_rgba(0,0,0,0.6)]
+                "
+              >
+                <FaPhoneAlt className="text-cyan-400 text-lg mt-1" />
+                <div>
+                  <p className="text-sm text-white/60">Phone</p>
+                  <p className="font-medium">+91 88718 55460</p>
+                </div>
+              </motion.div>
+
+              {/* Email */}
+              <motion.div
+                whileHover={{ rotateX: 6, rotateY: 6, y: -4 }}
+                style={{ transformStyle: "preserve-3d" }}
+                className="flex items-start gap-4 p-5 rounded-2xl
+                  bg-white/5 backdrop-blur-2xl
+                  border border-white/10
+                  shadow-[0_15px_40px_rgba(0,0,0,0.6)]
+                "
+              >
+                <FaEnvelope className="text-cyan-400 text-lg mt-1" />
+                <div>
+                  <p className="text-sm text-white/60">Email</p>
+                  <p className="font-medium">info@acoreithub.com</p>
+                </div>
+              </motion.div>
+
+              {/* Website */}
+              <motion.div
+                whileHover={{ rotateX: -6, rotateY: 6, y: -4 }}
+                style={{ transformStyle: "preserve-3d" }}
+                className="flex items-start gap-4 p-5 rounded-2xl
+                  bg-white/5 backdrop-blur-2xl
+                  border border-white/10
+                  shadow-[0_15px_40px_rgba(0,0,0,0.6)]
+                "
+              >
+                <FaGlobe className="text-cyan-400 text-lg mt-1" />
+                <div>
+                  <p className="text-sm text-white/60">Website</p>
+                  <p className="font-medium">www.acoreithub.com</p>
+                </div>
+              </motion.div>
+
+              {/* Address */}
+              <motion.div
+                whileHover={{ rotateX: -6, rotateY: -6, y: -4 }}
+                style={{ transformStyle: "preserve-3d" }}
+                className="flex items-start gap-4 p-5 rounded-2xl
+                  bg-white/5 backdrop-blur-2xl
+                  border border-white/10
+                  shadow-[0_15px_40px_rgba(0,0,0,0.6)]
+                "
+              >
+                <FaMapMarkerAlt className="text-cyan-400 text-lg mt-1" />
+                <div>
+                  <p className="text-sm text-white/60">Address</p>
+                  <p className="font-medium leading-relaxed">
+                    16, “Intalee House”, Ratanlok Colony,<br />
+                    Behind Apollo Premier, Vijay Nagar,<br />
+                    Indore, India
+                  </p>
+                </div>
+              </motion.div>
+
+            </div>
           </motion.div>
 
           {/* RIGHT – FORM */}
@@ -112,7 +180,6 @@ export default function Contact() {
               </motion.button>
             </div>
           </motion.form>
-
         </div>
       </div>
     </section>

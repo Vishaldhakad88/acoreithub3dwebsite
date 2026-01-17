@@ -9,7 +9,7 @@ import {
   FaAws,
   FaGitAlt,
   FaGithub,
-  FaJava,        // ✅ Java yahan se
+  FaJava,
 } from "react-icons/fa";
 
 import {
@@ -20,6 +20,8 @@ import {
   SiMongodb,
 } from "react-icons/si";
 
+import heroBg from "../assets/hero/hero-bg.png";
+import heroShape from "../assets/hero/hero-shape.png";
 
 const techs = [
   { name: "HTML5", icon: FaHtml5 },
@@ -33,78 +35,114 @@ const techs = [
   { name: "MongoDB", icon: SiMongodb },
   { name: "AWS", icon: FaAws },
   { name: "PHP", icon: SiPhp },
-  { name: "Java", icon: FaJava },   // ✅ SAFE
+  { name: "Java", icon: FaJava },
   { name: "Git", icon: FaGitAlt },
   { name: "GitHub", icon: FaGithub },
 ];
 
 export default function TechStack() {
   return (
-    <section className="relative bg-black text-white py-24 overflow-hidden">
+    <section className="relative bg-black text-white py-24 overflow-hidden group">
 
-      {/* ===== SECTION HEADING ===== */}
-      <div className="text-center mb-16 px-6">
-        <h2 className="text-3xl md:text-4xl font-bold">
-          Technologies We Use
-        </h2>
-        <p className="mt-4 text-white/70 max-w-2xl mx-auto">
-          Modern, scalable and industry-leading technologies powering our solutions.
-        </p>
-      </div>
+      {/* ===== MOVING BACKGROUND IMAGE ===== */}
+      <motion.div
+        className="absolute inset-0"
+        animate={{
+          scale: [1.05, 1.1, 1.05],
+          x: ["0%", "-3%", "0%"],
+        }}
+        transition={{
+          duration: 45,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.12,
+        }}
+      />
 
-      {/* ===== MARQUEE ===== */}
-      <div className="relative w-full overflow-hidden">
-        <motion.div
-          className="flex gap-10 w-max px-10 py-20"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        >
-          {[...techs, ...techs].map((tech, i) => {
-            const Icon = tech.icon;
+      {/* hover grow */}
+      <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"></div>
 
-            return (
-              <motion.div
-                key={i}
-                whileHover={{
-                  y: -12,
-                  rotateX: 12,
-                  rotateY: -12,
-                  scale: 1.15,
-                }}
-                style={{ transformStyle: "preserve-3d" }}
-                className="
-                  relative min-w-[120px] h-[120px]
-                  flex flex-col items-center justify-center
-                  rounded-2xl
-                  bg-white/5 backdrop-blur-xl
-                  border border-white/10
-                  
-                  hover:border-cyan-400/50
-                  transition
-                "
-              >
-                {/* Glow */}
-                <div className="
-                  absolute inset-0 rounded-2xl
-                  bg-[radial-gradient(circle,rgba(14,165,233,0.35),transparent_60%)]
-                  opacity-0 hover:opacity-100 transition
-                "></div>
+      {/* black overlay */}
+      <div className="absolute inset-0 bg-black/85"></div>
 
-                {/* Icon */}
-                <Icon className="text-5xl text-cyan-400 z-10" />
+      {/* floating shape */}
+      <motion.img
+        src={heroShape}
+        animate={{ y: [0, 30, 0], rotate: [0, 10, 0] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute right-[-18%] top-[15%] w-[520px] opacity-20 pointer-events-none"
+      />
 
-                {/* Name */}
-                <span className="mt-2 text-xs text-white/80 z-10">
-                  {tech.name}
-                </span>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+      <div className="relative z-10">
+
+        {/* ===== SECTION HEADING ===== */}
+        <div className="text-center mb-16 px-6">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Technologies We Use
+          </h2>
+          <p className="mt-4 text-white/70 max-w-2xl mx-auto">
+            Modern, scalable and industry-leading technologies powering our solutions.
+          </p>
+        </div>
+
+        {/* ===== MARQUEE ===== */}
+        <div className="relative w-full overflow-hidden">
+          <motion.div
+            className="flex gap-10 w-max px-10 py-20"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {[...techs, ...techs].map((tech, i) => {
+              const Icon = tech.icon;
+
+              return (
+                <motion.div
+                  key={i}
+                  whileHover={{
+                    y: -12,
+                    rotateX: 12,
+                    rotateY: -12,
+                    scale: 1.15,
+                  }}
+                  style={{ transformStyle: "preserve-3d" }}
+                  className="
+                    relative min-w-[120px] h-[120px]
+                    flex flex-col items-center justify-center
+                    rounded-2xl
+                    bg-white/5 backdrop-blur-xl
+                    border border-white/10
+                    hover:border-cyan-400/50
+                    transition
+                  "
+                >
+                  {/* Glow */}
+                  <div className="
+                    absolute inset-0 rounded-2xl
+                    bg-[radial-gradient(circle,rgba(14,165,233,0.35),transparent_60%)]
+                    opacity-0 hover:opacity-100 transition
+                  "></div>
+
+                  {/* Icon */}
+                  <Icon className="text-5xl text-cyan-400 z-10" />
+
+                  {/* Name */}
+                  <span className="mt-2 text-xs text-white/80 z-10">
+                    {tech.name}
+                  </span>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
