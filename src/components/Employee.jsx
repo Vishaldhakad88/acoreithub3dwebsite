@@ -26,14 +26,7 @@ const team = [
     linkedin: "#",
     github: "#",
   },
-  // {
-  //   name: "Neha Verma",
-  //   role: "Backend Developer",
-  //   image: "https://i.pravatar.cc/300?img=45",
-  //   tech: ["Node", "Express", "AWS"],
-  //   linkedin: "#",
-  //   github: "#",
-  // },
+ 
   {
     name: "Rahul Singh",
     role: "UI/UX Designer",
