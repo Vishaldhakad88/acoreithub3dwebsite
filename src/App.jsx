@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
 import CursorGlow from "./components/CursorGlow";
+import Projects from "./components/Projects";
 import TechStack from "./components/TechStack";
 import Employee from "./components/Employee";
 import FloatingActions from "./components/FloatingActions";
@@ -19,24 +20,31 @@ export default function App() {
   return (
     <div className="bg-black min-h-screen">
       <CursorGlow />
+
+      {/* SINGLE Navbar */}
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      
-      {currentPage === "home" ? (
+
+      {currentPage === "home" && (
         <>
           <Hero />
           <Services />
+          <Projects />
           <TechStack />
           <ProjectsShowcase />
           <Industries />
           <Employee />
-          <Contact />
           <Testimonials />
+          <Contact />
         </>
-      ) : currentPage === "about" ? (
-        <AboutPage setCurrentPage={setCurrentPage} />
-      ) : null}
+      )}
 
+      {currentPage === "about" && (
+        <AboutPage setCurrentPage={setCurrentPage} />
+      )}
+
+      {/* SINGLE Footer */}
       <Footer />
+
       <FloatingActions />
     </div>
   );
