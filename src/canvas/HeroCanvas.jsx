@@ -1,61 +1,96 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Html } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJsSquare,
+  FaReact,
+  FaNodeJs,
+  FaAws,
+  FaGitAlt,
+  FaGithub,
+  FaJava,
+} from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiExpress,
+  SiPhp,
+  SiMongodb,
+} from "react-icons/si";
 
-/* ================= DOTTED GLOBE WITH PULSE ================= */
-function DottedGlobe({ mouse }) {
-  const pointsRef = useRef();
-  const materialRef = useRef();
+const techs = [
+  { name: "HTML5", icon: FaHtml5 },
+  { name: "CSS3", icon: FaCss3Alt },
+  { name: "JavaScript", icon: FaJsSquare },
+  { name: "React", icon: FaReact },
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "Node.js", icon: FaNodeJs },
+  { name: "Express", icon: SiExpress },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "AWS", icon: FaAws },
+  { name: "PHP", icon: SiPhp },
+  { name: "Java", icon: FaJava },
+  { name: "Git", icon: FaGitAlt },
+  { name: "GitHub", icon: FaGithub },
+];
 
-  const dots = useMemo(() => {
+/* ================= TECH ICON SPHERE ================= */
+function TechIconSphere({ mouse }) {
+  const groupRef = useRef();
+
+  const iconPositions = useMemo(() => {
     const arr = [];
     const radius = 1.6;
+    const totalIcons = 300;
 
-    for (let i = 0; i < 1800; i++) {
+    for (let i = 0; i < totalIcons; i++) {
       const phi = Math.acos(2 * Math.random() - 1);
       const theta = 2 * Math.PI * Math.random();
 
-      arr.push(
-        radius * Math.sin(phi) * Math.cos(theta),
-        radius * Math.cos(phi),
-        radius * Math.sin(phi) * Math.sin(theta)
-      );
+      const x = radius * Math.sin(phi) * Math.cos(theta);
+      const y = radius * Math.cos(phi);
+      const z = radius * Math.sin(phi) * Math.sin(theta);
+
+      const techIndex = i % techs.length;
+
+      arr.push({
+        position: [x, y, z],
+        tech: techs[techIndex],
+      });
     }
-    return new Float32Array(arr);
+    return arr;
   }, []);
 
-  useFrame(({ clock }) => {
-    const t = clock.getElapsedTime();
-
-    // rotation + mouse tilt
-    pointsRef.current.rotation.y += 0.002;
-    pointsRef.current.rotation.x = mouse.current.y * 0.25;
-    pointsRef.current.rotation.z = mouse.current.x * 0.25;
-
-    // pulse animation
-    materialRef.current.size = 0.028 + Math.sin(t * 2) * 0.01;
-    materialRef.current.opacity = 0.6 + Math.sin(t * 2) * 0.25;
+  useFrame(() => {
+    groupRef.current.rotation.y += 0.002;
+    groupRef.current.rotation.x = mouse.current.y * 0.25;
+    groupRef.current.rotation.z = mouse.current.x * 0.25;
   });
 
   return (
-    <points ref={pointsRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          array={dots}
-          count={dots.length / 3}
-          itemSize={3}
-        />
-      </bufferGeometry>
-
-      <pointsMaterial
-        ref={materialRef}
-        color="#38bdf8"
-        transparent
-        sizeAttenuation
-      />
-    </points>
+    <group ref={groupRef}>
+      {iconPositions.map((item, i) => {
+        const Icon = item.tech.icon;
+        return (
+          <Html
+            key={i}
+            position={item.position}
+            center
+            style={{
+              pointerEvents: "none",
+            }}
+          >
+            <div className="text-cyan-400 opacity-60">
+              <Icon size={12} />
+            </div>
+          </Html>
+        );
+      })}
+    </group>
   );
 }
 
@@ -119,7 +154,7 @@ export default function HeroCanvas({ mouse }) {
       <ambientLight intensity={0.4} />
       <pointLight position={[5, 5, 5]} intensity={0.8} />
 
-      <DottedGlobe mouse={mouse} />
+      <TechIconSphere mouse={mouse} />
       <ConnectionArcs />
 
       <OrbitControls

@@ -18,7 +18,7 @@ export default function Hero() {
   };
 
   return (
-    <section
+    <section id="home"
       onMouseMove={handleMouseMove}
       className="relative min-h-screen pt-24 md:pt-28 bg-black text-white overflow-hidden"
     >
@@ -60,14 +60,18 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-5 justify-center md:justify-start">
-            <button className="px-8 py-4 rounded-xl
+            <button 
+              onClick={() => window.location.href = 'tel:8871855460'}
+              className="px-8 py-4 rounded-xl
               bg-gradient-to-r from-blue-500 to-cyan-500
               shadow-[0_0_30px_rgba(14,165,233,0.6)]
               hover:scale-105 transition">
               Get Started
             </button>
 
-            <button className="px-8 py-4 rounded-xl
+            <button 
+              onClick={() => window.open('https://acoreithub.com/', '_blank')}
+              className="px-8 py-4 rounded-xl
               border border-white/20
               hover:bg-white/10 transition">
               View Portfolio

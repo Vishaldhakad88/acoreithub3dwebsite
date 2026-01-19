@@ -8,78 +8,86 @@ import {
 import { useState, useEffect } from "react";
 
 import bgImage from "../assets/hero/hero-bg.png";
+import saleshImage from "../assets/Team/salesh.png";
 
 const team = [
   {
-    name: "Vishal Dhakad",
-    role: "Founder & Full Stack Developer",
-    image: "https://i.pravatar.cc/300?img=12",
+    name: "Selesh Sarathe",
+    role: "UI/UX Designer",
+    image: saleshImage,
     tech: ["React", "Node", "MongoDB"],
     linkedin: "#",
     github: "#",
   },
   {
-    name: "Amit Sharma",
+    name: "Vishal Dhakad",
     role: "Frontend Developer",
-    image: "https://i.pravatar.cc/300?img=32",
+    image: null,
+    tech: ["React", "Tailwind", "UI/UX"],
+    linkedin: "https://www.linkedin.com/in/vishal-dhakad-3a6a8730a/",
+    github: "https://github.com/Vishaldhakad88",
+  },
+  {
+    name: "Suman Rathore",
+    role: "Frontend Developer",
+    image: null,
     tech: ["React", "Tailwind", "UI/UX"],
     linkedin: "#",
     github: "#",
   },
- 
   {
-    name: "Rahul Singh",
-    role: "UI/UX Designer",
-    image: "https://i.pravatar.cc/300?img=56",
-    tech: ["Figma", "Design Systems"],
+    name: "Bhushan Pandagre",
+    role: "Mern Stack Developer",
+    image: null,
+    tech: ["React js", "Node js", "MongoDB"],
     linkedin: "#",
     github: "#",
   },
   {
-    name: "Priya Patel",
-    role: "DevOps Engineer",
-    image: "https://i.pravatar.cc/300?img=47",
-    tech: ["Docker", "Kubernetes", "CI/CD"],
+    name: "Ghanashyam Kushwah",
+    role: "Full Stack Developer",
+    image: null,
+    tech: ["Php", "Node js", "React js"],
     linkedin: "#",
     github: "#",
   },
   {
-    name: "Arjun Reddy",
-    role: "Data Scientist",
-    image: "https://i.pravatar.cc/300?img=33",
-    tech: ["Python", "ML", "Analytics"],
+    name: "Yash Rathore",
+    role: "Flutter Developer",
+    image: null,
+    tech: ["Flutter", "iOS"],
     linkedin: "#",
     github: "#",
   },
   {
-    name: "Sneha Kapoor",
-    role: "Mobile Developer",
-    image: "https://i.pravatar.cc/300?img=38",
-    tech: ["React Native", "Flutter", "iOS"],
+    name: "Moiz",
+    role: "Flutter Developer",
+    image: null,
+    tech: ["Flutter", "iOS"],
     linkedin: "#",
     github: "#",
   },
   {
-    name: "Karan Malhotra",
-    role: "Cloud Architect",
-    image: "https://i.pravatar.cc/300?img=68",
-    tech: ["AWS", "Azure", "GCP"],
+    name: "Abhishek Khachawa",
+    role: "Flutter Developer",
+    image: null,
+    tech: ["Flutter", "iOS"],
     linkedin: "#",
     github: "#",
   },
   {
-    name: "Divya Joshi",
-    role: "Product Manager",
-    image: "https://i.pravatar.cc/300?img=44",
-    tech: ["Strategy", "Agile", "Analytics"],
+    name: "Aayush Panchal",
+    role: "Project Manager",
+    image: null,
+    tech: ["MERN Stack", "Java", "Python"],
     linkedin: "#",
     github: "#",
   },
   {
-    name: "Rohan Gupta",
-    role: "Security Engineer",
-    image: "https://i.pravatar.cc/300?img=59",
-    tech: ["Cybersecurity", "Penetration Testing"],
+    name: "Karan Panchal",
+    role: "Full Stack Developer",
+    image: null,
+    tech: ["react js", "Javascript", "node js"],
     linkedin: "#",
     github: "#",
   },
@@ -127,22 +135,15 @@ export default function Team() {
     return cards;
   };
 
+  const getInitials = (name) => name.charAt(0).toUpperCase();
+
   return (
     <section className="relative bg-black text-white py-16 md:py-28 overflow-hidden">
-
-      {/* ===== SUBTLE MOVING BACKGROUND IMAGE ===== */}
+      {/* Background */}
       <motion.div
         className="absolute inset-0"
-        animate={{
-          scale: [1.05, 1.1, 1.05],
-          x: ["0%", "-3%", "0%"],
-          y: ["0%", "2%", "0%"],
-        }}
-        transition={{
-          duration: 45,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        animate={{ scale: [1.05, 1.1, 1.05] }}
+        transition={{ duration: 45, repeat: Infinity }}
         style={{
           backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",
@@ -151,89 +152,97 @@ export default function Team() {
         }}
       />
 
-      {/* ===== STRONG BLACK OVERLAY ===== */}
       <div className="absolute inset-0 bg-black/85"></div>
 
-      {/* ===== EXISTING PURPLE ACCENT ===== */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(168,85,247,0.1),transparent_50%)]"></div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
-        {/* ===== HEADING ===== */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12 md:mb-20"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold bg-white bg-clip-text text-transparent">
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
             Meet Our Team
           </h2>
-          <p className="mt-4 text-white/70 max-w-2xl mx-auto text-sm md:text-base px-4">
-            Passionate professionals driving innovation and delivering
-            high-quality digital solutions.
+          <p className="mt-4 text-white/70">
+            Passionate professionals building modern digital products.
           </p>
-        </motion.div>
+        </div>
 
-        {/* ===== SLIDER ===== */}
         <div className="relative">
-          <AnimatePresence mode="wait" initial={false} custom={direction}>
+          <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
-              custom={direction}
               initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="grid gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+              transition={{ duration: 0.5 }}
+              className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
             >
               {getVisibleCards().map((member, i) => (
                 <motion.div
-                  key={`${member.name}-${i}`}
-                  whileHover={{ y: -12, rotateY: 8, rotateX: 4, scale: 1.03 }}
-                  style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
-                  className="relative group"
+                  key={i}
+                  whileHover={{ y: -10, scale: 1.05 }}
+                  className="rounded-2xl bg-white/10 border border-white/20 p-6 text-center"
                 >
-                  <div className="relative rounded-2xl overflow-hidden bg-white/10 backdrop-blur-2xl border border-white/20 h-full">
-                    <div className="relative p-5 text-center">
+                  <div className="mx-auto w-24 h-24 mb-4">
+                    {member.image ? (
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="mx-auto w-24 h-24 rounded-full object-cover mb-4"
+                        className="w-full h-full rounded-full object-cover border-4 border-white/30"
                       />
-                      <h3 className="font-bold">{member.name}</h3>
-                      <p className="text-cyan-400 text-xs mb-3">{member.role}</p>
-                      <div className="flex flex-wrap gap-2 justify-center mb-4">
-                        {member.tech.map((t, idx) => (
-                          <span
-                            key={idx}
-                            className="text-xs px-2 py-1 rounded-full bg-white/10 border border-white/10"
-                          >
-                            {t}
-                          </span>
-                        ))}
+                    ) : (
+                      <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-3xl font-bold">
+                        {getInitials(member.name)}
                       </div>
-                      <div className="flex justify-center gap-3">
-                        <FaLinkedinIn className="text-cyan-400" />
-                        <FaGithub className="text-purple-400" />
-                      </div>
-                    </div>
+                    )}
+                  </div>
+
+                  <h3 className="font-bold text-lg">{member.name}</h3>
+                  <p className="text-cyan-400 text-sm mb-4">{member.role}</p>
+
+                  <div className="flex flex-wrap justify-center gap-2 mb-4">
+                    {member.tech.map((t, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* ✅ FIXED LINKS */}
+                  <div className="flex justify-center gap-4">
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:scale-110 transition"
+                    >
+                      <FaLinkedinIn className="text-cyan-400" />
+                    </a>
+
+                    <a
+                      href={member.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:scale-110 transition"
+                    >
+                      <FaGithub className="text-purple-400" />
+                    </a>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
           </AnimatePresence>
 
-          {/* NAV BUTTONS */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2"
+            className="absolute -left-10 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center"
           >
             <FaChevronLeft />
           </button>
 
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2"
+            className="absolute -right-10 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center"
           >
             <FaChevronRight />
           </button>

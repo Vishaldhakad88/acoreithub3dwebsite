@@ -3,7 +3,7 @@ import { FaPhoneAlt, FaEnvelope, FaGlobe, FaMapMarkerAlt } from "react-icons/fa"
 
 export default function Contact() {
   return (
-    <section className="relative bg-black text-white py-28 overflow-hidden">
+    <section id="contact" className="relative bg-black text-white py-28 overflow-hidden">
 
       {/* ===== SUBTLE BACKGROUND ACCENT ===== */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(14,165,233,0.18),transparent_45%)]"></div>

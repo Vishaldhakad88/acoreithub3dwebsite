@@ -45,7 +45,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="relative bg-black text-white py-28 overflow-hidden">
+    <section id="services" className="relative bg-black text-white py-28 overflow-hidden">
 
       {/* ===== SUBTLE MOVING TEXTURE ===== */}
       <motion.div
