@@ -11,7 +11,7 @@ import ProjectsShowcase from "./components/ProjectsShowcase";
 import Industries from "./components/Industries";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Testimonials from "./components/testimonials";
+import Testimonials from "./components/Testimonials";
 import AboutPage from "./pages/AboutPage";
 
 export default function App() {
