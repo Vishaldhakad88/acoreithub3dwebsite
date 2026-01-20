@@ -74,7 +74,7 @@ export default function Hero() {
               className="px-8 py-4 rounded-xl
               border border-white/20
               hover:bg-white/10 transition">
-              View Portfolio
+              View Website
             </button>
           </div>
         </div>

@@ -9,6 +9,9 @@ import { useState, useEffect } from "react";
 
 import bgImage from "../assets/hero/hero-bg.png";
 import saleshImage from "../assets/Team/salesh.png";
+import bhushan from "../assets/Team/bhushan.png";
+import aniket from "../assets/Team/aniket.png";
+import vishal from "../assets/Team/vishal.png";
 
 const team = [
   {
@@ -22,7 +25,7 @@ const team = [
   {
     name: "Vishal Dhakad",
     role: "Frontend Developer",
-    image: null,
+    image: vishal,
     tech: ["React", "Tailwind", "UI/UX"],
     linkedin: "https://www.linkedin.com/in/vishal-dhakad-3a6a8730a/",
     github: "https://github.com/Vishaldhakad88",
@@ -38,7 +41,15 @@ const team = [
   {
     name: "Bhushan Pandagre",
     role: "Mern Stack Developer",
-    image: null,
+    image: bhushan,
+    tech: ["React js", "Node js", "MongoDB"],
+    linkedin: "#",
+    github: "#",
+  },
+  {
+    name: "Aniket",
+    role: "Mern Stack Developer",
+    image: aniket,
     tech: ["React js", "Node js", "MongoDB"],
     linkedin: "#",
     github: "#",

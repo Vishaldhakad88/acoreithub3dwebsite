@@ -4,15 +4,15 @@ import {
   FaGithub,
   FaInstagram,
   FaTwitter,
+  FaFacebook,
 } from "react-icons/fa";
 
 import logo from "../assets/acore-logo.png";
 
 const socialIcons = [
-  { icon: FaLinkedinIn, link: "#" },
-  { icon: FaGithub, link: "#" },
-  { icon: FaInstagram, link: "#" },
-  { icon: FaTwitter, link: "#" },
+  { icon: FaLinkedinIn, link: "https://www.linkedin.com/company/acore-it-hub-pvt-ltd/" },
+  { icon: FaInstagram, link: "https://www.instagram.com/acore_it_hub_pvt_ltd/" },
+  { icon: FaFacebook, link: "https://www.facebook.com/acoreithub" },
 ];
 
 export default function Footer() {

@@ -6,52 +6,39 @@ import heroShape from "../assets/hero/hero-shape.png";
 
 const testimonials = [
   {
-    name: "Nirmal Kumar",
-    position: "CEO, TechVision India",
-    company: "TechVision",
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    name: "sumu rathore",
+    position: "Frontend Developer",
+    company: "Acore IT Hub",
     rating: 5,
-    text: "Working with this team has been an absolute game-changer for our business. Their technical expertise and dedication to delivering quality solutions exceeded our expectations. The project was completed on time and within budget.",
+    text: "Acore IT Hub is a reliable and professional IT company.Their team is very helpful, skilled, and always ready to support. They deliver projects on time and maintain good quality in their work. Whether it's website development, app solutions, or digital services, they handle everything with care. I'm really happy with their services and would definitely recommend them to others.",
   },
   {
-    name: "Priya Sharma",
-    position: "Founder, EduTech Solutions",
-    company: "EduTech",
-    image: "https://randomuser.me/api/portraits/women/2.jpg",
+    name: "shubham bhoyar",
+    position: "",
+    company: "",
     rating: 5,
-    text: "The team's innovative approach and attention to detail transformed our vision into reality. Their commitment to excellence and responsive communication made the entire development process seamless and enjoyable.",
+    text: "Working with Acore IT Hub has been an absolute pleasure. Their team of skilled professionals is not only knowledgeable in their field but also dedicated to providing top-notch service and support.",
   },
   {
-    name: "Amit Patel",
-    position: "CTO, FinanceFlow",
-    company: "FinanceFlow",
-    image: "https://randomuser.me/api/portraits/men/3.jpg",
+    name: "Sandhya Rehpade",
+    position: "",
+    company: "",
     rating: 5,
-    text: "Exceptional work! They delivered a robust and scalable solution that has significantly improved our operational efficiency. The team's expertise in cutting-edge technologies is truly impressive.",
+    text: "No dought every IT company is good but with Acore my experience is best as director & the staff is so cooperative & easy going. They all r having good experienced so they give good suggestions as well. Grt grt grt !!!",
   },
   {
-    name: "Sneha Reddy",
-    position: "Product Manager, HealthCare Plus",
-    company: "HealthCare Plus",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    name: "Sadaram Rehpade",
+    position: "",
+    company: "",
     rating: 5,
-    text: "Outstanding service from start to finish. The team understood our healthcare requirements perfectly and delivered a HIPAA-compliant solution that our users love. Highly recommended!",
+    text: "I will just say, Score is one of the Best company i mean the staff is  very down to earth & costing of service is very reasionable like we will not get their price in market.\nGrt work guys\nThank u !!!",
   },
   {
-    name: "Vikram Singh",
+    name: "Ayushi Yadav",
     position: "Director, LogiTech Systems",
     company: "LogiTech",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
     rating: 5,
     text: "Their professionalism and technical prowess are unmatched. They not only built our application but also provided valuable insights that enhanced our business model. A truly remarkable team!",
-  },
-  {
-    name: "Ananya Mehta",
-    position: "Co-Founder, ShopSmart",
-    company: "ShopSmart",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-    rating: 5,
-    text: "We couldn't be happier with the e-commerce platform they developed. The attention to user experience and the seamless integration of features have driven our sales up by 200%. Simply amazing!",
   },
 ];
 
@@ -79,7 +66,6 @@ export default function Testimonials() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
-  // Auto-slide functionality
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -96,10 +82,17 @@ export default function Testimonials() {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
+  const getInitials = (name) => {
+    return name
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase())
+      .slice(0, 2)
+      .join('');
+  };
+
   return (
     <section className="relative bg-black text-white py-16 md:py-20 overflow-hidden">
       
-      {/* Animated Background - Hero BG */}
       <motion.div
         className="absolute inset-0 opacity-20"
         style={{
@@ -119,7 +112,6 @@ export default function Testimonials() {
         }}
       />
 
-      {/* Animated Shape - Following Mouse */}
       <motion.div
         className="absolute inset-0 opacity-15 pointer-events-none"
         style={{
@@ -142,16 +134,13 @@ export default function Testimonials() {
         }}
       />
 
-      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/85 to-black/90" />
 
-      {/* Gradient Glows */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -186,10 +175,8 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        {/* Testimonials Slider */}
         <div className="relative max-w-5xl mx-auto">
           
-          {/* Main Testimonial Card */}
           <motion.div
             key={currentIndex}
             initial={{ opacity: 0, x: 100 }}
@@ -198,10 +185,9 @@ export default function Testimonials() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <TestimonialCard testimonial={testimonials[currentIndex]} />
+            <TestimonialCard testimonial={testimonials[currentIndex]} getInitials={getInitials} />
           </motion.div>
 
-          {/* Navigation Arrows */}
           <div className="flex justify-center items-center gap-4 mt-8">
             <motion.button
               onClick={handlePrevious}
@@ -217,7 +203,6 @@ export default function Testimonials() {
               </svg>
             </motion.button>
 
-            {/* Dots Indicator */}
             <div className="flex gap-2">
               {testimonials.map((_, index) => (
                 <motion.button
@@ -248,7 +233,6 @@ export default function Testimonials() {
             </motion.button>
           </div>
 
-          {/* All Testimonials Grid (Hidden on mobile, visible on larger screens) */}
           <div className="hidden lg:grid grid-cols-3 gap-6 mt-16">
             {testimonials.map((testimonial, index) => (
               <motion.div
@@ -263,6 +247,7 @@ export default function Testimonials() {
                 <MiniTestimonialCard 
                   testimonial={testimonial} 
                   isActive={index === currentIndex}
+                  getInitials={getInitials}
                 />
               </motion.div>
             ))}
@@ -274,7 +259,7 @@ export default function Testimonials() {
   );
 }
 
-function TestimonialCard({ testimonial }) {
+function TestimonialCard({ testimonial, getInitials }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -290,7 +275,6 @@ function TestimonialCard({ testimonial }) {
         transition-all duration-500 overflow-hidden"
     >
       
-      {/* Animated Glow Effect */}
       <motion.div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         animate={isHovered ? {
@@ -303,14 +287,12 @@ function TestimonialCard({ testimonial }) {
         transition={{ duration: 3, repeat: Infinity }}
       />
 
-      {/* Quote Icon */}
       <div className="absolute top-6 left-6 opacity-10">
         <svg className="w-16 h-16 sm:w-20 sm:h-20 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
       </div>
 
-      {/* Rating Stars */}
       <div className="flex gap-1 mb-4 relative z-10">
         {[...Array(testimonial.rating)].map((_, i) => (
           <motion.svg
@@ -327,24 +309,23 @@ function TestimonialCard({ testimonial }) {
         ))}
       </div>
 
-      {/* Testimonial Text */}
       <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-8 relative z-10"
         style={{ fontFamily: "'Inter', sans-serif" }}>
         "{testimonial.text}"
       </p>
 
-      {/* Client Info */}
       <div className="flex items-center gap-4 relative z-10">
         <motion.div
           whileHover={{ scale: 1.1 }}
           className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden
-            border-2 border-cyan-400/30 shadow-[0_0_20px_rgba(34,211,238,0.3)]"
+            border-2 border-cyan-400/30 shadow-[0_0_20px_rgba(34,211,238,0.3)]
+            bg-gradient-to-br from-cyan-500 to-blue-600
+            flex items-center justify-center"
         >
-          <img 
-            src={testimonial.image} 
-            alt={testimonial.name}
-            className="w-full h-full object-cover"
-          />
+          <span className="text-white text-xl sm:text-2xl font-bold"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            {getInitials(testimonial.name)}
+          </span>
         </motion.div>
 
         <div>
@@ -368,7 +349,7 @@ function TestimonialCard({ testimonial }) {
   );
 }
 
-function MiniTestimonialCard({ testimonial, isActive }) {
+function MiniTestimonialCard({ testimonial, isActive, getInitials }) {
   return (
     <motion.div
       whileHover={{ y: -5, scale: 1.02 }}
@@ -381,14 +362,15 @@ function MiniTestimonialCard({ testimonial, isActive }) {
         }`}
     >
       <div className="flex items-center gap-3 mb-3">
-        <div className={`w-10 h-10 rounded-full overflow-hidden border-2 transition-all ${
+        <div className={`w-10 h-10 rounded-full overflow-hidden border-2 transition-all
+          bg-gradient-to-br from-cyan-500 to-blue-600
+          flex items-center justify-center ${
           isActive ? 'border-cyan-400' : 'border-white/20'
         }`}>
-          <img 
-            src={testimonial.image} 
-            alt={testimonial.name}
-            className="w-full h-full object-cover"
-          />
+          <span className="text-white text-sm font-bold"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            {getInitials(testimonial.name)}
+          </span>
         </div>
         <div className="flex-1">
           <h5 className="text-sm font-bold text-white"
