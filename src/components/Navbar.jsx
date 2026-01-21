@@ -48,10 +48,10 @@ export default function Navbar({ currentPage, setCurrentPage }) {
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-10">
             {menu.map((item) => (
-              <button
+              <button 
                 key={item.name}
                 onClick={() => scrollToSection(item.href, item.name)}
-                className="text-white/80 hover:text-white transition"
+                className="text-white/80 hover:text-white transition cursor-pointer"
               >
                 {item.name}
               </button>

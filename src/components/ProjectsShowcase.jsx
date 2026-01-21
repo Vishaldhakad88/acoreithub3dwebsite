@@ -257,7 +257,7 @@ export default function Projects() {
   const visible = projects.slice(start, start + ITEMS_PER_PAGE);
 
   return (
-    <section className="relative bg-black text-white py-28 overflow-hidden">
+    <section id="projects" className="relative bg-black text-white py-28 overflow-hidden">
 
       {/* Gradient Glows */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />

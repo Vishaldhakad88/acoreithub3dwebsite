@@ -13,6 +13,14 @@ const socialIcons = [
   { icon: FaLinkedinIn, link: "https://www.linkedin.com/company/acore-it-hub-pvt-ltd/" },
   { icon: FaInstagram, link: "https://www.instagram.com/acore_it_hub_pvt_ltd/" },
   { icon: FaFacebook, link: "https://www.facebook.com/acoreithub" },
+]; 
+
+const quickLinks = [
+  { name: "Home", href: "#home" },
+  { name: "Services", href: "#services" },
+  { name: "Projects", href: "#projects" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Footer() {
@@ -54,6 +62,7 @@ export default function Footer() {
                     key={i}
                     href={item.link}
                     target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{
                       y: -6,
                       rotateX: 12,
@@ -92,10 +101,16 @@ export default function Footer() {
           >
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-3 text-white/70 text-sm">
-              <li className="hover:text-cyan-400 cursor-pointer">Home</li>
-              <li className="hover:text-cyan-400 cursor-pointer">Services</li>
-              <li className="hover:text-cyan-400 cursor-pointer">Projects</li>
-              <li className="hover:text-cyan-400 cursor-pointer">Contact</li>
+              {quickLinks.map((link, i) => (
+                <li key={i}>
+                  <a
+                    href={link.href}
+                    className="hover:text-cyan-400 transition-colors cursor-pointer"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -125,7 +140,7 @@ export default function Footer() {
             <ul className="space-y-3 text-white/70 text-sm">
               <li>Email: contact@acoreithub.com</li>
               <li>Phone: +91 98931 21385</li>
-              <li>Location: India</li>
+              <li>Location: Indore</li>
             </ul>
           </motion.div>
 
@@ -135,20 +150,11 @@ export default function Footer() {
         <div className="my-14 h-px bg-white/10"></div>
 
         {/* ===== BOTTOM BAR ===== */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-white/60 text-sm">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-white/60 text-sm">
 
           <p>
             © {new Date().getFullYear()} Acore IT Hub. All rights reserved.
           </p>
-
-          <div className="flex gap-6">
-            <span className="hover:text-cyan-400 cursor-pointer">
-              Privacy Policy
-            </span>
-            <span className="hover:text-cyan-400 cursor-pointer">
-              Terms & Conditions
-            </span>
-          </div>
 
         </div>
       </div>

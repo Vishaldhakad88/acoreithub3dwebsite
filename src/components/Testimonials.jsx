@@ -26,13 +26,7 @@ const testimonials = [
     rating: 5,
     text: "No dought every IT company is good but with Acore my experience is best as director & the staff is so cooperative & easy going. They all r having good experienced so they give good suggestions as well. Grt grt grt !!!",
   },
-  {
-    name: "Sadaram Rehpade",
-    position: "",
-    company: "",
-    rating: 5,
-    text: "I will just say, Score is one of the Best company i mean the staff is  very down to earth & costing of service is very reasionable like we will not get their price in market.\nGrt work guys\nThank u !!!",
-  },
+  
   {
     name: "Ayushi Yadav",
     position: "Director, LogiTech Systems",
